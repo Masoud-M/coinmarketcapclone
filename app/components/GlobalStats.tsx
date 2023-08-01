@@ -10,9 +10,10 @@ const GlobalStats = () => {
   const normalDataStyle = "text-[#6188ff] text-[11px]  font-semibold";
   const linkStyle =
     "flex justify-start items-center font-semibold text-[11px] flex-nowrap";
+
   return (
-    <div className=" py-[9px] px-[16px] whitespace-nowrap overflow-x-scroll ">
-      <div className="flex flex-nowrap justify-start items-center h-full ">
+    <div className=" flex items-center py-[9px] px-[16px] whitespace-nowrap overflow-x-scroll ">
+      <div className="flex flex-nowrap justify-start items-center ">
         <div className={stateStyle}>
           <span className={primerySpanStyle}>Cryptos:</span>
           <Link className={normalDataStyle} href={"/"}>
@@ -77,7 +78,7 @@ const GlobalStats = () => {
           <span className={primerySpanStyle}>ETH Gas:</span>
           <div className={linkStyle}>
             <Link className={normalDataStyle} href={"/"}>
-              &nbsp;BTC: 48.3% ETH: 18.9%
+              &nbsp;28 Gwei
             </Link>
           </div>
         </div>

@@ -7,10 +7,12 @@ import {
   SetStateAction,
   useState,
 } from "react";
+
 interface ContextProps {
   darkTheme: boolean;
   setDarkTheme: Dispatch<SetStateAction<boolean>>;
 }
+
 const GlobalContext = createContext<ContextProps>({
   darkTheme: true,
   setDarkTheme: () => {},
