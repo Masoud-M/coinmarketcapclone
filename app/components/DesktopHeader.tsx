@@ -122,34 +122,44 @@ const DesktopHeader = () => {
             <div className="flex flex-row items-center pl-[16px]">
               <div className="px-[16px] py-[24px] font-semibold">
                 <Link className="h-[23px]" href={"/"}>
-                  <span className=" text-[14px]">Cryptocurrencies</span>
+                  <span className=" text-[14px] hover:text-[#6188ff] transition-all">
+                    Cryptocurrencies
+                  </span>
                 </Link>
               </div>
               <div>
                 <div className="px-[16px] py-[24px] font-semibold">
                   <Link className="h-[23px]" href={"/"}>
-                    <span className=" text-[14px]">Exchanges</span>
+                    <span className=" text-[14px] hover:text-[#6188ff] transition-all">
+                      Exchanges
+                    </span>
                   </Link>
                 </div>
               </div>
               <div>
                 <div className="px-[16px] py-[24px] font-semibold">
                   <Link className="h-[23px]" href={"/"}>
-                    <span className=" text-[14px]">Community</span>
+                    <span className=" text-[14px] hover:text-[#6188ff] transition-all">
+                      Community
+                    </span>
                   </Link>
                 </div>
               </div>
               <div>
                 <div className="px-[16px] py-[24px] font-semibold">
                   <Link className="h-[23px]" href={"/"}>
-                    <span className=" text-[14px]">Products</span>
+                    <span className=" text-[14px] hover:text-[#6188ff] transition-all">
+                      Products
+                    </span>
                   </Link>
                 </div>
               </div>
               <div>
                 <div className="px-[16px] py-[24px] font-semibold">
                   <Link className="h-[23px]" href={"/"}>
-                    <span className=" text-[14px]">Learn</span>
+                    <span className=" text-[14px] hover:text-[#6188ff] transition-all">
+                      Learn
+                    </span>
                   </Link>
                 </div>
               </div>
@@ -157,14 +167,14 @@ const DesktopHeader = () => {
           </div>
           {/* Right section */}
           <div className="flex">
-            <div className="flex items-center flex-wrap">
-              <div className="flex items-center px-[8px]">
+            <div className="flex items-center flex-wrap ">
+              <div className="flex items-center px-[8px] h-[36px] rounded-[8px] hover:bg-[#222531] cursor-pointer transition-all">
                 <div className="text-[#646b80] text-[19px]">
                   <AiFillStar />
                 </div>
                 <span className="ml-[4px] text-[14px]">Watchlist</span>
               </div>
-              <div className="flex items-center px-[8px]">
+              <div className="flex items-center px-[8px] h-[36px] rounded-[8px] hover:bg-[#222531] cursor-pointer transition-all">
                 <div className="text-[#646b80] text-[19px]">
                   <AiFillPieChart />
                 </div>
