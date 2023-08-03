@@ -2,6 +2,7 @@
 
 import { useGlobalContext } from "./Context/MainContext";
 import Header from "./components/Header";
+import ToggleSwitch from "./components/ToggleSwitch";
 
 export default function Home() {
   const { darkTheme, setDarkTheme } = useGlobalContext();
