@@ -45,7 +45,8 @@ const DesktopHeader = () => {
                     <BiSolidDownArrow />
                   </div>
                 </div>
-                <button>
+
+                <div>
                   <div
                     className={
                       "flex dark:hidden h-[20px] w-[20px] text-[20px]  items-center"
@@ -72,7 +73,8 @@ const DesktopHeader = () => {
                       <BsFillSunFill />
                     </button>
                   </div>
-                </button>
+                </div>
+
                 <span className="mx-[12px] w-[1px] h-[22px] bg-[#323546] ">
                   {" "}
                 </span>
