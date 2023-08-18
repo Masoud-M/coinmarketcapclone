@@ -1,4 +1,5 @@
 "use client";
+import ApiComponent from "./ApiComponent";
 import Header from "./components/Header";
 
 // import { useCryptocurrencies } from "./useCryptocurrencies";
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Header />
+      <ApiComponent />
     </div>
   );
 };

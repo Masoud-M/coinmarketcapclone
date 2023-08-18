@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 interface Cryptocurrency {
   id: number;
@@ -21,9 +20,10 @@ const ApiComponent: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchCoinData() {
       try {
-        const response = await axios.get<Cryptocurrency[]>(
+        setLoading(true);
+        const res = await fetch(
           "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map",
           {
             headers: {
@@ -31,17 +31,24 @@ const ApiComponent: React.FC = () => {
             },
           }
         );
-        setData(response.data);
-        console.log(response.data);
-        setLoading(false);
-      } catch (ex) {
-        setError(ex.message);
+
+        if (!res.ok)
+          throw new Error("something went wrong with fetching coin data");
+
+        const fetchedData = await res.json();
+
+        if (fetchedData.status.error_message)
+          throw new Error(`${fetchedData.status.error_message}`);
+
+        setData(fetchedData.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
         setLoading(false);
       }
-    };
-
-    fetchData();
-  }, []); // Empty dependency array ensures this effect runs only once, on the client-side
+    }
+    fetchCoinData();
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -62,60 +69,3 @@ const ApiComponent: React.FC = () => {
 };
 
 export default ApiComponent;
-
-// "use client";
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-
-// interface CoinData {
-//   id: number;
-//   name: string;
-//   // Add other properties based on the API response
-// }
-
-// const ApiComponent: React.FC = () => {
-//   const [data, setData] = useState<CoinData[]>([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get<CoinData[]>(
-//           "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map",
-//           {
-//             headers: {
-//               "X-CMC_PRO_API_KEY": "16acb07f-cb1d-4762-8233-243fa74f8f1a",
-//             },
-//           }
-//         );
-//         setData(response.data);
-//         setLoading(false);
-//       } catch (ex) {
-//         setError(ex.message);
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (error) {
-//     return <div>Error: {error}</div>;
-//   }
-
-//   // Use the data in your component
-//   return (
-//     <div>
-//       {data.map((item) => (
-//         <p key={item.id}>{item.name}</p>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default ApiComponent;
